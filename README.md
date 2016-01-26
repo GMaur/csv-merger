@@ -10,13 +10,13 @@ For the time being, follows this strategy:
 
 ```lisp
 (use 'csv-merger.merge-csv)
-csv-merger.merge-csv=> (fetch-csv "dev-resources/a1.csv")
+(fetch-csv "dev-resources/a1.csv")
 ;;(
 ;; ["id" " common1" " common2" " different1_1" " different1_2"]
 ;; ["0a" " 1a" " 2a" " 1_1a" " 1_2a"]
 ;; ["0b" " 1b" " 2b" " 1_1b" " 1_2b"]
 ;;)
-csv-merger.merge-csv=> (fetch-csv "dev-resources/a2.csv")
+(fetch-csv "dev-resources/a2.csv")
 ;;(
 ;; ["id" " common1" " common2" " different2_1" " different2_2"]
 ;; ["0a" " 1a" " 2a" " 1_1a" " 1_2a"]
