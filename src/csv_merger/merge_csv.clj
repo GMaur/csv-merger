@@ -77,7 +77,5 @@
   (write output-filename (merge-csv input1-filename input2-filename)))
 
 (defn -main [& args]
-  (let [output (nth args 0)
-         input1 (nth args 1)
-         input2 (nth args 2)]
+  (let [[output input1 input2] args]
   (merge-and-write-to input1 input2 output)))
