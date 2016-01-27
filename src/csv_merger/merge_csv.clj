@@ -19,7 +19,9 @@
 
 (defn decorate-row [row header]
   (let [upper-limit (range (count header))]
-  (into {} (for [i upper-limit] [(nth header i) (nth row i)]))))
+  (->> 
+    (for [i upper-limit] [(nth header i) (nth row i)])
+    (into {}))))
 
 (defn select-cols [decorated-row all-headers]
   (map #(-> (get decorated-row % "")) all-headers))
