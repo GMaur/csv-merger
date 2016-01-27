@@ -1,6 +1,7 @@
 (ns csv-merger.merge-csv
   (:require [clojure.data.csv :as csv]
-                [clojure.java.io :as io]))
+                [clojure.java.io :as io])
+  (:gen-class))
 
 (defn fetch-csv [filename]
   (with-open [in-file (io/reader filename)]
@@ -74,3 +75,9 @@
 
 (defn merge-and-write-to [input1-filename input2-filename output-filename]
   (write output-filename (merge-csv input1-filename input2-filename)))
+
+(defn -main [& args]
+  (let [output (nth args 0)
+         input1 (nth args 1)
+         input2 (nth args 2)]
+  (merge-and-write-to input1 input2 output)))
