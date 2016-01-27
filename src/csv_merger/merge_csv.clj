@@ -20,8 +20,8 @@
 (defn decorate-row [row header]
   (into {} (for [i (range (count header))] [(nth header i) (nth row i)])))
 
- (defn select-cols [decorated-row all-headers]
-   (map #(-> (get decorated-row % "")) all-headers))
+(defn select-cols [decorated-row all-headers]
+  (map #(-> (get decorated-row % "")) all-headers))
 
 (defn order-rows [csv-map all-headers]
   (let [h1 (header csv-map)
