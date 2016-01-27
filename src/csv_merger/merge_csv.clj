@@ -30,10 +30,10 @@
    (map #(select-cols % all-headers) decorated-rows)))
 
 (defn merge-csv-contents [csv-map1 csv-map2]
-  (let [h1 (header csv-map1)
-         h2 (header csv-map2)
-         allh (merge-headers h1 h2)]
-         (concat (list allh) (order-rows csv-map1 allh) (order-rows csv-map2 allh))))
+  (let [header1 (header csv-map1)
+         header2 (header csv-map2)
+         all-headers (merge-headers header1 header2)]
+         (concat (list all-headers) (order-rows csv-map1 all-headers) (order-rows csv-map2 all-headers))))
 
 (defn merge-csv [filename1 filename2]
   (let [file1 (fetch-csv filename1)
