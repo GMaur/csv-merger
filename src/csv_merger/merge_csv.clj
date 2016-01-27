@@ -18,7 +18,8 @@
   (distinct (concat header1 header2)))
 
 (defn decorate-row [row header]
-  (into {} (for [i (range (count header))] [(nth header i) (nth row i)])))
+  (let [upper-limit (range (count header))]
+  (into {} (for [i upper-limit] [(nth header i) (nth row i)]))))
 
 (defn select-cols [decorated-row all-headers]
   (map #(-> (get decorated-row % "")) all-headers))
