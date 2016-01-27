@@ -29,7 +29,7 @@
          decorated-rows (map #(decorate-row % h1) rows1)]
    (map #(select-cols % all-headers) decorated-rows)))
 
-(defn merge-csv- [csv-map1 csv-map2]
+(defn merge-csv-contents [csv-map1 csv-map2]
   (let [h1 (header csv-map1)
          h2 (header csv-map2)
          allh (merge-headers h1 h2)]
@@ -38,7 +38,7 @@
 (defn merge-csv [filename1 filename2]
   (let [file1 (fetch-csv filename1)
          file2 (fetch-csv filename2)]
-         (merge-csv- file1 file2)))
+         (merge-csv-contents file1 file2)))
 
 (defn write [filename csv-map]
   (with-open [out-file (io/writer filename)]
