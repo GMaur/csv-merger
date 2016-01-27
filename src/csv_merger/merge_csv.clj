@@ -24,7 +24,7 @@
     (into {}))))
 
 (defn select-cols [decorated-row all-headers]
-  (map #(-> (get decorated-row % "")) all-headers))
+  (map #(get decorated-row % "") all-headers))
 
 (defn order-rows [csv-map all-headers]
   (let [headers (header csv-map)
