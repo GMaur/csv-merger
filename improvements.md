@@ -7,4 +7,4 @@
 
 ### References
 
-[File Seq](https://clojuredocs.org/clojure.core/file-seq)
+  * [File Seq](https://clojuredocs.org/clojure.core/file-seq)
