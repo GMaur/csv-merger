@@ -32,11 +32,12 @@
 (defn merge-csv-contents [csv-map1 csv-map2]
   (let [header1 (header csv-map1)
          header2 (header csv-map2)
-         all-headers (merge-headers header1 header2)]
+         all-headers (merge-headers header1 header2)
+         order-rows-in #(order-rows % all-headers)]
          (concat 
             (list all-headers)
-            (order-rows csv-map1 all-headers)
-            (order-rows csv-map2 all-headers))))
+            (order-rows-in csv-map1)
+            (order-rows-in csv-map2))))
 
 (defn merge-csv [filename1 filename2]
   (let [file1 (fetch-csv filename1)
