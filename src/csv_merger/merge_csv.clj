@@ -13,44 +13,15 @@
 (defn rows [csv-map]
   (rest csv-map))
 
-;(def a1 (fetch-csv "dev-resources/a1.csv"))
-;(def a2 (fetch-csv "dev-resources/a2.csv"))
-
-;(def h1 (into [] (flatten (header a1))))
-;; ["id" " common1" " common2" " different1_1" " different1_2"]
-;(def h2 (into [] (flatten (header a2)))))
-;; ["id" " common1" " common2" " different2_1" " different2_2"]
 ;; http://stackoverflow.com/questions/12658341/how-can-i-merge-two-sequences-in-clojure
-
 (defn merge-headers [header1 header2]
   (distinct (concat header1 header2)))
-;(def allh (merge-headers h1 h2))
-;; ("id"
-;;  " common1"
-;;  " common2"
-;;  " different1_1"
-;;  " different1_2"
-;;  " different2_1"
-;;  " different2_2")
 
 (defn decorate-row [row header]
   (into {} (for [i (range (count header))] [(nth header i) (nth row i)])))
 
-;(def dr1 (decorate-row r1 h1))
-;; {" common1" " 1a",
-;; " common2" " 2a",
-;; " different1_1" " 1_1a",
-;; " different1_2" " 1_2a",
-;; "id" "0a"}
-
-
- ;;(map #(-> (get dr1 % "")) allh) ;;("0a" " 1a" " 2a" " 1_1a" " 1_2a" "" "")
-
  (defn select-cols [decorated-row all-headers]
    (map #(-> (get decorated-row % "")) all-headers))
-
-; (def rows1 (rows a1))
- ;; (["0a" " 1a" " 2a" " 1_1a" " 1_2a"] ["0b" " 1b" " 2b" " 1_1b" " 1_2b"])
 
 (defn order-rows [csv-map all-headers]
   (let [h1 (header csv-map)
