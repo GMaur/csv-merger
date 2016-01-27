@@ -24,9 +24,9 @@
   (map #(-> (get decorated-row % "")) all-headers))
 
 (defn order-rows [csv-map all-headers]
-  (let [h1 (header csv-map)
-         rows1 (rows csv-map)
-         decorated-rows (map #(decorate-row % h1) rows1)]
+  (let [headers (header csv-map)
+         rows (rows csv-map)
+         decorated-rows (map #(decorate-row % headers) rows)]
    (map #(select-cols % all-headers) decorated-rows)))
 
 (defn merge-csv-contents [csv-map1 csv-map2]
