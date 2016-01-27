@@ -5,6 +5,10 @@
   * use an interface closer to [xml-seq](https://clojuredocs.org/clojure.core/xml-seq)
 
 
+## Ideas
+
+  * Why ``with-open`` and not ``slurp``? Investigate
+
 ### References
 
   * [File Seq](https://clojuredocs.org/clojure.core/file-seq)
